@@ -20,15 +20,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 https://web-push-codelab.glitch.me/
 
+
 ## Build
 
 Obs: Para testarmos  a aplicação com os services worker configurados junto ao angular, temos que ter uma versão de produção configurada e funcionando.
 
-##Para fazer o build da aplicação é necessário que executemos o seguinte comando
+Para fazer o build da aplicação é necessário que executemos o seguinte comando
 	
 	$ ng build --prod
 
-##Dentro de dist execute o seguinte comando para rodar a aplicação.
+Dentro de dist execute o seguinte comando para rodar a aplicação.
 
 	$ http-server dist\pwaPushAngular
 
