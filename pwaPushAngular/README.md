@@ -2,26 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.0-rc.0.
 
-## Development server
+## Instalação e configuração
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  1.Instale a versão mais recente do angular  
+	    $ npm install --global @angular/cli@next
+  2.Crie um novo projeto em angular
+	    $ ng new angularPushNotification
+  3.Entre na pasta do projeto criado
+	    $ cd angularPushNotification
+  4. Instale os servicesWorkers pré configurados
+	    $ ng add @angular/pwa@next --project=angularPushNotification
 
-## Code scaffolding
+## VAPID_PUBLIC_KEY
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+https://web-push-codelab.glitch.me/
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Obs: Para testarmos  a aplicação com os services worker configurados junto ao angular, temos que ter uma versão de produção configurada e funcionando.
 
-## Running unit tests
+###Para fazer o build da aplicação é necessário que executemos o seguinte comando
+	
+	$ ng build --prod
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###Dentro de dist execute o seguinte comando para rodar a aplicação.
 
-## Running end-to-end tests
+	$ http-server dist\pwaPushAngular
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
