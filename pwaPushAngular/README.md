@@ -6,10 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
   1.Instale a versão mais recente do angular  
 	    $ npm install --global @angular/cli@next
+      
   2.Crie um novo projeto em angular
-	    $ ng new angularPushNotification
+	    $ ng new angularPushNotification
+      
   3.Entre na pasta do projeto criado
-	    $ cd angularPushNotification
+	    $ cd angularPushNotification
+      
   4. Instale os servicesWorkers pré configurados
 	    $ ng add @angular/pwa@next --project=angularPushNotification
 
@@ -21,11 +24,11 @@ https://web-push-codelab.glitch.me/
 
 Obs: Para testarmos  a aplicação com os services worker configurados junto ao angular, temos que ter uma versão de produção configurada e funcionando.
 
-###Para fazer o build da aplicação é necessário que executemos o seguinte comando
+##Para fazer o build da aplicação é necessário que executemos o seguinte comando
 	
 	$ ng build --prod
 
-###Dentro de dist execute o seguinte comando para rodar a aplicação.
+##Dentro de dist execute o seguinte comando para rodar a aplicação.
 
 	$ http-server dist\pwaPushAngular
 
