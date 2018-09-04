@@ -69,19 +69,19 @@ Dentro do construtor precisamos injetar as depêndencias ##pushSW e ##SwUpdate p
 	
 **constructor(private pushSw:SwPush,private update:SwUpdate)**
 
-**export class AppModule { **
-**  VAPID_PUBLIC_KEY = 'BN3OkuR8xf-ElA6xVKCQ9L-OjTtmNyuNoA8BHA1vvbf-Fr9Oo6dZNy-7-uAFYwL_CpooTahJk79v2u9CEZZFer4';**
-**	 
-**	  constructor(private pushSw:SwPush,private update:SwUpdate){ **
-**	    update.available.subscribe(update =>{**
-**	        console.log("Nova versão disponível");**
-**	      });**
-**        
-**       this.SubscribeToPush();**
-**	      pushSw.messages.subscribe(msg =>{**
-**	        console.log(JSON.stringify(msg));**
-**        })**
-**     }** 
+export class AppModule { 
+  VAPID_PUBLIC_KEY = 'BN3OkuR8xf-ElA6xVKCQ9L-OjTtmNyuNoA8BHA1vvbf-Fr9Oo6dZNy-7-uAFYwL_CpooTahJk79v2u9CEZZFer4';
+	 
+	  constructor(private pushSw:SwPush,private update:SwUpdate){
+	    update.available.subscribe(update =>{
+	        console.log("Nova versão disponível");
+	      });
+        
+       this.SubscribeToPush();
+	      pushSw.messages.subscribe(msg =>{
+	        console.log(JSON.stringify(msg));
+        })
+     } 
 
 Fora do constructor,mas ainda dentro de app.module.ts criamos uma função que retorna um observable responsável por fazer a requisição para a inscrição do push utilizando a KEY citada anteriormente . Inicialmente verificamos se a requisição do push ocorreu com sucesso,então imprimimos no log os dados da assinatura do serviço,caso haja algum erro, uma mensagem será mostrada ao usuário com a descrição do problema.
 
