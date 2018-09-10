@@ -105,6 +105,9 @@ Gerando uma versão de produção
 
     $ ng build --prod
 
+Instale um servidor de HTTP para rodar o projeto
+   
+    $ npm install http-serve -g 
 
 No diretório raiz do projeto execute:
 	
