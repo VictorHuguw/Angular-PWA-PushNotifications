@@ -42,25 +42,24 @@ typescript                   |2.9.2
 
 ## VAPID_PUBLIC_KEY e configuração da mensagem que será enviada 
 
-Você deve utilizar uma key púlica para fazer a utiilização dos recursos de push no seu projeto,as KEYS se encontram no seguinte endereço
+Você deve utilizar uma key para fazer a utilização dos recursos de push no seu projeto,as KEYS se encontram no seguinte endereço
 
-https://web-push-codelab.glitch.me/
+    https://web-push-codelab.glitch.me/
 
-Basta que você clique em REFRESH KEYS copie a key gerada em PUBLIC KEY e cole em uma variável chamada PUBLIC_VAPID_KEY 
+Basta que você clique em REFRESH KEYS e copie a key gerada em PUBLIC KEY utilizaremos ela em nosso projeto. 
 
 
-## Configurações para envio de push notifications 
+## Configurações para o envio de notificações 
 
-Dentro de app.module.ts importe os seguintes endereços,que serão utilizados
+Dentro de app.module.ts importe os seguintes componentes que serão utilizados
 
     import {SwPush,SwUpdate} from '@angular/service-worker';**
 
-Feito isso,dentro da class AppModule é onde configuramos toda a parte principal para as configurações
-dos pushs,em app.module.ts na classe AppModule armazene em uma variável a Key copiada anteriormente.
+Em class AppModule é onde configuramos toda a parte principal para o envio das notificações.No arquivo app.module.ts na classe AppModule armazene em uma variável a KEY copiada anteriormente.
 
-    VAPID_PUBLIC_KEY = 'BN3OkuR8xf-ElA6xVKCQ9L-OjTtmNyuNoA8BHA1vvbf-Fr9Oo6dZNy-7-uAFYwL_CpooTahJk79v2u9CEZZFer4';
+    VAPID_PUBLIC_KEY = 'SUA_KEY';
 
-Dentro do construtor precisamos injetar as depêndencias ##pushSW e ##SwUpdate para fazer a utilização dos recursos de push no nosso projeto.Feito isso criaremos uma função que retorna um observable responsável por fazer a verificação da atualização atual,se houver uma atualização disponível,uma mensagem será disparada sugerindo a atualização,logo e seguida criamos também uma Função responsável por fazer a configuração do observable para fazer o tratamento das mensagens que serão recebidas ao rodarmos o projeto.
+Dentro do construtor precisamos injetar as depêndencias pushSW e SwUpdate para fazer a utilização dos recursos de push no nosso projeto.Agora criaremos uma função que retorna um observable responsável por fazer a verificação da atualização atual,se houver uma atualização disponível,uma mensagem será disparada sugerindo a atualização,logo em seguida criamos também uma função responsável por fazer a configuração do observable para tratar as mensagens que serão recebidas.
 	
     constructor(private pushSw:SwPush,private update:SwUpdate)
 
@@ -93,8 +92,7 @@ Fora do constructor,mas ainda dentro de app.module.ts criamos uma função que r
       .catch(err =>{
         console.error("Ocorreu um erro:"+ err);
       })
-    }
-  }	
+    }}	
 
 
 
@@ -113,14 +111,13 @@ No diretório raiz do projeto execute:
     $ http-server dist\pwaPushAngular
 
 
-Com o projeto rondando,agora basta que você entre no seguinte link novamente para configurar o texto da mensagem que aparecerá no banner de notificação.
 
-https://web-push-codelab.glitch.me/
+Feito isso uma KEY será gerada no console após você executar o projeto, basta que você copie essa key entre em https://web-push-codelab.glitch.me/ e cole a key em subscribe to send to. Apos isso configure o texto da mensagem em text to send,e por fim para enviar a mensagem clique em send push message volte para o seu projeto e voce vera a notificaçao na tela.
 
 
 Para melhor visualização,sugerimos que copie e cole o seguinte código no campo de mensagem e envie.
 
-{ 
+    { 
         "notification": { 
             "title": "PWA-PUSH-ANGULAR", 
             "body": "Uma nova notificação chegou!!", 
@@ -134,7 +131,7 @@ Para melhor visualização,sugerimos que copie e cole o seguinte código no camp
                 "title": "Go to the site" 
             }] 
         }
-}
+    }
 
 
 
